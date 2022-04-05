@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 
 
+
 class App extends React.Component{
   url = 'https://www.bridgelabz.com/'
   constructor(){
@@ -23,7 +24,14 @@ class App extends React.Component{
 
   onNameChange = (event) => {
     console.log("the value is", event.target.value);
-    this.setState( {userName: event.target.value})    
+    const nameRagex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
+    this.setState( {userName: event.target.value})
+    if(nameRagex.test(event.target.value)) {
+      this.setState({nameError: ''})
+    } else
+    {
+      this.setState({ nameError: 'Name is Incorrect'})
+    }    
   }
 
   render(){
@@ -37,6 +45,7 @@ class App extends React.Component{
       </div>
       <div>
         <input onChange={this.onNameChange} />
+        <span className="error-output"> {this.state.nameError} </span>
       </div>
       </div>
     );
