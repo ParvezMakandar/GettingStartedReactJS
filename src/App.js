@@ -6,7 +6,7 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        <h1> Web Application using ReactJs </h1>
+        <h1> Hello From Bridgelabz World </h1>
         </div>
     );
   }
